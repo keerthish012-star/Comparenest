@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Compare smartphones and laptops by price, performance, display, memory and battery.">
+<title>CompareNest — Find tech that fits you</title>
+<style>
+:root{--navy:#10213b;--blue:#2563eb;--pale:#eff6ff;--ink:#182235;--muted:#667085;--line:#e5eaf1;--bg:#f7f9fc;--white:#fff;--green:#087f5b}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}
+button,input,select{font:inherit}button{cursor:pointer}.wrap{width:min(1120px,calc(100% - 32px));margin:auto}
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+.nav{height:68px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{font-weight:850;font-size:1.25rem;color:var(--navy);text-decoration:none;letter-spacing:-.6px}.brand span{color:var(--blue)}nav{display:flex;gap:20px}nav a{color:#465268;text-decoration:none;font-size:.94rem;font-weight:600}.navbtn{border:0;border-radius:10px;background:var(--blue);color:white;padding:10px 14px;font-weight:700}
+.hero{background:linear-gradient(130deg,#edf4ff,#fff 65%,#f1f5ff);padding:52px 0 36px}.eyebrow{color:var(--blue);font-size:.78rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}.hero h1{font-size:clamp(2.1rem,5vw,3.7rem);letter-spacing:-2px;line-height:1.08;margin:12px 0;max-width:720px;color:var(--navy)}.hero p{color:var(--muted);font-size:1.08rem;max-width:600px;margin:0 0 24px}.searchrow{display:flex;gap:10px;max-width:680px}.searchrow input{flex:1;min-width:0;border:1px solid #d5ddeb;border-radius:12px;padding:14px 15px;background:white;outline-color:var(--blue)}.primary{border:0;border-radius:11px;background:var(--blue);color:#fff;font-weight:750;padding:12px 17px}.secondary{border:1px solid #cbd5e1;background:white;color:var(--navy);border-radius:10px;padding:9px 12px;font-weight:700}.tabs{display:flex;gap:9px;margin-top:18px}.tab{border:1px solid #dbe3ef;background:white;border-radius:999px;padding:8px 15px;font-weight:700;color:#475467}.tab.active{background:var(--navy);border-color:var(--navy);color:white}
+main{padding:32px 0 60px}.sectionhead{display:flex;justify-content:space-between;align-items:end;gap:14px;margin-bottom:18px}.sectionhead h2{font-size:1.5rem;letter-spacing:-.5px;margin:0}.sectionhead p{color:var(--muted);margin:5px 0 0;font-size:.94rem}.tools{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.tools select{border:1px solid var(--line);border-radius:9px;padding:9px;background:white;color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.product{background:white;border:1px solid var(--line);border-radius:17px;padding:18px;display:flex;flex-direction:column;min-width:0;box-shadow:0 4px 16px #10213b05}.producttop{display:flex;align-items:start;justify-content:space-between;gap:10px}.tag{font-size:.72rem;font-weight:800;color:#2456b8;background:var(--pale);padding:5px 8px;border-radius:999px}.visual{height:112px;display:flex;align-items:center;justify-content:center;margin:13px 0 10px;background:linear-gradient(135deg,#f7f9fc,#edf3fb);border-radius:13px;font-size:4rem}.product h3{font-size:1.05rem;line-height:1.3;margin:0 0 6px}.price{font-size:1.3rem;font-weight:850;color:var(--navy)}.muted{color:var(--muted);font-size:.85rem}.specs{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:15px 0;padding:13px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.specs div{font-size:.82rem}.specs b{display:block;font-size:.8rem;color:#27364e}.cardactions{display:flex;gap:8px;margin-top:auto}.cardactions button{flex:1}.checkrow{display:flex;align-items:center;gap:7px;color:#475467;font-size:.86rem}.checkrow input{accent-color:var(--blue);width:17px;height:17px}
+.comparebox{margin-top:32px;background:white;border:1px solid var(--line);border-radius:17px;padding:20px;scroll-margin-top:90px}.comparebox h2{margin:0 0 5px}.comparebox p{margin:0 0 16px;color:var(--muted);font-size:.92rem}.tablewrap{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:550px}th,td{text-align:left;padding:12px;border-bottom:1px solid var(--line);font-size:.9rem}th{background:#f7f9fc;color:var(--navy)}td:first-child{font-weight:700;color:#536078;width:22%}.empty{text-align:center;padding:22px;background:#f8fafc;border-radius:12px;color:var(--muted)}
+.guidegrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:32px}.guide{background:white;border:1px solid var(--line);border-radius:15px;padding:18px}.guide .emoji{font-size:1.5rem}.guide h3{margin:9px 0 5px;font-size:1rem}.guide p{margin:0;color:var(--muted);font-size:.9rem}
+footer{border-top:1px solid var(--line);background:white;padding:24px 0;color:var(--muted);font-size:.85rem}footer .foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.notice{font-size:.8rem;color:var(--muted);margin-top:16px}
+.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:var(--navy);color:white;padding:11px 16px;border-radius:10px;box-shadow:0 8px 25px #0002;display:none;z-index:20}
+@media(max-width:800px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}nav{gap:12px}nav a:nth-child(3){display:none}.guidegrid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.wrap{width:min(100% - 24px,1120px)}.nav{height:60px}.brand{font-size:1.1rem}nav a{display:none}.navbtn{padding:9px 11px;font-size:.85rem}.hero{padding:38px 0 28px}.hero h1{letter-spacing:-1.3px}.searchrow{flex-direction:column}.searchrow .primary{width:100%}.sectionhead{align-items:start;flex-direction:column}.tools{width:100%}.tools select{flex:1}.grid{grid-template-columns:1fr 1fr;gap:10px}.product{padding:12px;border-radius:14px}.visual{height:82px;font-size:3rem}.product h3{font-size:.92rem}.price{font-size:1.08rem}.specs{gap:7px}.specs div{font-size:.76rem}.cardactions{flex-direction:column}.cardactions button{width:100%;font-size:.83rem;padding:8px}.checkrow{font-size:.78rem}.guidegrid{grid-template-columns:1fr}.comparebox{padding:14px}.hero p{font-size:1rem}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+<a class="brand" href="#" aria-label="CompareNest home">Compare<span>Nest</span></a>
+<nav aria-label="Main navigation"><a href="#products" data-nav="all">Explore</a><a href="#products" data-nav="phone">Phones</a><a href="#products" data-nav="laptop">Laptops</a><a href="#compare">Compare</a></nav>
+<button class="navbtn" onclick="scrollCompare()">Compare list <span id="count">(0)</span></button>
+</div></header>
+<section class="hero"><div class="wrap">
+<div class="eyebrow">Smarter tech decisions</div>
+<h1>Find the tech<br>that fits you.</h1>
+<p>Compare smartphones and laptops side by side. Explore key specs, check sample prices, and choose with confidence.</p>
+<div class="searchrow"><input id="search" type="search" placeholder="Search phones, laptops, brands..." aria-label="Search products"><button class="primary" onclick="renderProducts()">Search devices</button></div>
+<div class="tabs" role="group" aria-label="Product category">
+<button class="tab active" data-filter="all">All devices</button><button class="tab" data-filter="phone">📱 Phones</button><button class="tab" data-filter="laptop">💻 Laptops</button>
+</div>
+</div></section>
+<main class="wrap">
+<section id="products">
+<div class="sectionhead"><div><h2>Explore devices</h2><p>Popular picks to start your comparison.</p></div><div class="tools"><select id="sort" aria-label="Sort devices"><option value="popular">Sort: Featured</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option><option value="name">Name: A–Z</option></select></div></div>
+<div id="productGrid" class="grid"></div>
+<p class="notice">Prices and specifications below are demo data for website testing. Verify all details before publishing.</p>
+</section>
+<section class="comparebox" id="compare">
+<h2>Compare devices</h2><p>Select up to three devices using “Add to compare” to see their differences here.</p>
+<div id="comparison"><div class="empty">No devices selected yet. Add devices from the cards above.</div></div>
+<div style="margin-top:14px"><button class="secondary" onclick="clearCompare()">Clear comparison</button></div>
+</section>
+<section class="guidegrid" aria-label="Buying guide topics">
+<article class="guide"><div class="emoji">🎯</div><h3>Choose by budget</h3><p>Compare options based on what you want to spend.</p></article>
+<article class="guide"><div class="emoji">⚡</div><h3>Compare performance</h3><p>Look at processors, memory and everyday use.</p></article>
+<article class="guide"><div class="emoji">🔋</div><h3>Check the essentials</h3><p>Review displays, battery and storage before choosing.</p></article>
+</section>
+</main>
+<footer><div class="wrap foot"><span><b>CompareNest</b> · Make a more informed choice.</span><span>Demo project · No affiliate links · No live price feed</span></div></footer>
+<div class="toast" id="toast" role="status"></div>
+<script>
+const devices = [
+{id:"p1",type:"phone",brand:"Samsung",name:"Samsung Galaxy S24 FE",price:39999,icon:"📱",display:"6.7-inch AMOLED",processor:"Exynos 2400e",ram:"8 GB",storage:"128 GB",battery:"4,700 mAh",camera:"50 MP main"},
+{id:"p2",type:"phone",brand:"Vivo",name:"Vivo V-series (sample)",price:29999,icon:"📱",display:"6.7-inch AMOLED",processor:"Mid-range octa-core",ram:"8 GB",storage:"128 GB",battery:"5,000 mAh",camera:"50 MP main"},
+{id:"p3",type:"phone",brand:"Apple",name:"Apple iPhone 15",price:49900,icon:"📱",display:"6.1-inch OLED",processor:"A16 Bionic",ram:"6 GB*",storage:"128 GB",battery:"All-day use*",camera:"48 MP main"},
+{id:"p4",type:"phone",brand:"OnePlus",name:"OnePlus Nord (sample)",price:24999,icon:"📱",display:"6.7-inch AMOLED",processor:"Mid-range Snapdragon",ram:"8 GB",storage:"128 GB",battery:"5,000 mAh",camera:"50 MP main"},
+{id:"l1",type:"laptop",brand:"ASUS",name:"ASUS Vivobook 15 (sample)",price:54990,icon:"💻",display:"15.6-inch FHD",processor:"Intel Core i5 class",ram:"16 GB",storage:"512 GB SSD",battery:"42 Wh*",camera:"720p webcam"},
+{id:"l2",type:"laptop",brand:"Lenovo",name:"Lenovo IdeaPad Slim (sample)",price:52990,icon:"💻",display:"15.6-inch FHD",processor:"AMD Ryzen 5 class",ram:"16 GB",storage:"512 GB SSD",battery:"47 Wh*",camera:"1080p webcam"},
+{id:"l3",type:"laptop",brand:"HP",name:"HP Pavilion (sample)",price:64990,icon:"💻",display:"15.6-inch FHD",processor:"Intel Core i5 class",ram:"16 GB",storage:"512 GB SSD",battery:"41 Wh*",camera:"1080p webcam"},
+{id:"l4",type:"laptop",brand:"Acer",name:"Acer Aspire 5 (sample)",price:47990,icon:"💻",display:"15.6-inch FHD",processor:"Intel Core i5 class",ram:"8 GB",storage:"512 GB SSD",battery:"50 Wh*",camera:"720p webcam"}
+];
+let activeFilter="all", selected=[];
+const money=n=>"₹"+n.toLocaleString("en-IN");
+function toast(msg){const el=document.getElementById("toast");el.textContent=msg;el.style.display="block";clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>el.style.display="none",2300)}
+function filtered(){
+ let q=document.getElementById("search").value.trim().toLowerCase();
+ let list=devices.filter(d=>(activeFilter==="all"||d.type===activeFilter)&&(!q||[d.name,d.brand,d.type,d.processor].join(" ").toLowerCase().includes(q)));
+ const s=document.getElementById("sort").value;
+ if(s==="low")list.sort((a,b)=>a.price-b.price);if(s==="high")list.sort((a,b)=>b.price-a.price);if(s==="name")list.sort((a,b)=>a.name.localeCompare(b.name));
+ return list;
+}
+function renderProducts(){
+ const list=filtered(),grid=document.getElementById("productGrid");
+ if(!list.length){grid.innerHTML='<div class="empty" style="grid-column:1/-1">No matching devices. Try another search.</div>';return}
+ grid.innerHTML=list.map(d=>`<article class="product"><div class="producttop"><span class="tag">${d.type==="phone"?"SMARTPHONE":"LAPTOP"}</span><span class="muted">${d.brand}</span></div><div class="visual" aria-hidden="true">${d.icon}</div><h3>${d.name}</h3><div class="price">${money(d.price)}</div><div class="muted">Sample price · INR</div><div class="specs"><div><b>Display</b>${d.display}</div><div><b>Processor</b>${d.processor}</div><div><b>Memory</b>${d.ram}</div><div><b>Storage</b>${d.storage}</div></div><div class="cardactions"><button class="primary" onclick="toggleCompare('${d.id}')">${selected.includes(d.id)?"✓ Added":"Add to compare"}</button><label class="checkrow"><input type="checkbox" ${selected.includes(d.id)?"checked":""} onchange="toggleCompare('${d.id}')"> Select</label></div></article>`).join("");
+}
+function toggleCompare(id){
+ if(selected.includes(id))selected=selected.filter(x=>x!==id);
+ else if(selected.length>=3){toast("You can compare up to 3 devices.");return}
+ else selected.push(id);
+ document.getElementById("count").textContent="("+selected.length+")";
+ renderProducts();renderComparison();
+}
+function renderComparison(){
+ const chosen=selected.map(id=>devices.find(d=>d.id===id)).filter(Boolean),root=document.getElementById("comparison");
+ if(!chosen.length){root.innerHTML='<div class="empty">No devices selected yet. Add devices from the cards above.</div>';return}
+ const rows=[["Price",d=>money(d.price)],["Category",d=>d.type==="phone"?"Smartphone":"Laptop"],["Brand",d=>d.brand],["Display",d=>d.display],["Processor",d=>d.processor],["RAM",d=>d.ram],["Storage",d=>d.storage],["Battery",d=>d.battery],["Camera / webcam",d=>d.camera]];
+ root.innerHTML='<div class="tablewrap"><table><thead><tr><th>Specification</th>'+chosen.map(d=>`<th>${d.name}</th>`).join("")+'</tr></thead><tbody>'+rows.map(([label,fn])=>`<tr><td>${label}</td>${chosen.map(d=>`<td>${fn(d)}</td>`).join("")}</tr>`).join("")+'</tbody></table></div>';
+}
+function clearCompare(){selected=[];document.getElementById("count").textContent="(0)";renderProducts();renderComparison()}
+function scrollCompare(){document.getElementById("compare").scrollIntoView({behavior:"smooth"})}
+document.querySelectorAll("[data-filter]").forEach(b=>b.addEventListener("click",()=>{activeFilter=b.dataset.filter;document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("active",x===b));renderProducts()}));
+document.querySelectorAll("[data-nav]").forEach(a=>a.addEventListener("click",()=>{activeFilter=a.dataset.nav;document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("active",x.dataset.filter===activeFilter));renderProducts()}));
+document.getElementById("search").addEventListener("input",renderProducts);
+document.getElementById("sort").addEventListener("change",renderProducts);
+renderProducts();renderComparison();
+</script>
+</body>
+</html>
